@@ -11,33 +11,44 @@ import jakarta.persistence.Table;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id; // Đổi int -> Integer để hỗ trợ giá trị null khi tạo mới
+
     private String name;
     private String email;
 
-    public Student() {}
-    public Student(int id, String name, String email) {
+    // Constructor mặc định (bắt buộc)
+    public Student() {
+    }
+
+    // Constructor đầy đủ (tùy chọn)
+    public Student(Integer id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
     }
-    public int getId() {
+
+    // Getter & Setter
+    public Integer getId() {
         return id;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
-    public String getEmail() {
-        return email;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
+
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
-    
 }
